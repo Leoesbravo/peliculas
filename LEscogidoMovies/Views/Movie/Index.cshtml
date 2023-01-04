@@ -1,0 +1,30 @@
+﻿@model ML.Movie
+
+@if(Model.Movies.Count > 0)
+{
+  <div class="row">
+    @foreach (ML.Movie movie in Model.Movies)
+    {
+        <div class="col mt-3 pt-3">
+            <div class="card text-white bg-dark border-success  mb-3 border-4 " style="width: 18rem;">
+                <img src="@movie.Imagen" class="card-img-top" style=" height:50%; width:100%;">
+                <div class="card-body ">
+                    <h5 class="card-title card-header text-center bg-secondary" id="pNombre">@movie.Nombre</h5>
+                    <p class="card-text" id="pCreditos">Creditos: @movie.Descripcion</p>
+                    <p class="card-text" style="display: none;" id="pIdMateria"> @movie.IdMovie</p>
+                    <a href="@Url.Action("CartPost", "VentaMateria", new {} )" class="btn btn-secondary">Ver <i class="fa-solid fa-ticket fa-bounce" style="color:fuchsia"></i> </a>          
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+}
+else
+{
+    <div>
+        <h2><i class="fa-solid fa-film fa-10x fa-beat-fade" style="color:crimson"></i></h2>
+        <h2>vaya</h2>
+
+    </div>
+}
+
